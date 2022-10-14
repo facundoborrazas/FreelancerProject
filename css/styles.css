@@ -1,0 +1,285 @@
+:root {
+    --Blanco: #ffffff;
+    --Oscuro: #212121;
+    --Primario: #C70039;
+    --Secundario: #900C3F;
+    --Terciario: #581845;
+    --Cuarternario: #FFC300;
+    --Grisclarito: #dfe9f3;
+}
+
+/* ":root" son las custome property, básicamente hace que vos puedas tener como una 
+"paleta de colores" que vasa a usar para la pag, se coloca el nombre de la variable 
+así "--nombreDeLaVariable = color que queremos poner" y para usarlos tenemos que 
+poner por ejemplo: "color: var(--nombreDeLaVariable);"
+Esto funciona para cualquier tipo de valores, no solo colores*/
+
+/*Globales*/
+html {
+    font-size: 62.5%;
+    box-sizing: border-box; /*Hack para el boxmodel*/
+    scroll-snap-type: y mandatory;
+}
+
+/*Scroll Snap*/
+.navegacion-principal,.servicios,.formulario{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Barlow', sans-serif;
+    background-image: linear-gradient(to top, var(--Terciario) 0%, var(--Primario) 100%);
+    /*Para hacer un degradado*/
+}
+
+/* font-size: 62.5%; en html y font-size: 16px; en body hace que 1rem = 10px*/
+
+.boton {
+    background-color: var(--Primario);
+    color: var(--Cuarternario);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 2rem;
+    text-transform: uppercase;
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.sombra {
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.54);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.54);
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.54);
+    background-color: var(--Primario);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/*Tipografía:*/
+h1 {
+    font-size: 3.8rem;
+    text-align: center;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 2.8rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/*Titulos:*/
+.titulo span {
+    font-size: 2rem;
+}
+
+/*Navegacion:*/
+.nav-bg {
+    background-color: var(--Primario);
+}
+
+.navegacion-principal {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 480px) {
+    .navegacion-principal {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.navegacion-principal a {
+    color: var(--Cuarternario);
+    text-decoration: none;
+    padding: 1rem;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.navegacion-principal a:hover {
+    background-color: var(--Terciario);
+    color: var(--Primario);
+}
+
+/*Hero:*/
+.hero {
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.contenido-hero {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Esta es la forma "Vieja" de hacerlo, pero es mejor dejarla, porque no todos soportan la forma de escribirlo de la siguiente manera*/
+    background-color: rgb(0 0 0/ 70%);
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--Blanco);
+
+}
+
+/*Servicios:*/
+@media (min-width: 768px) {
+    .servicios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /*Esto se puede poner así tambien:
+        grid-template-columns: 1fe 1fr 1fr
+        grid-template-columns: 33.3% 33.3% 33.3%*/
+        column-gap: 1rem;
+        /*Sirve para hacer una separacion (en columnas) entre una 
+        columna con contenido y otra*/
+    }
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.servicio h3 {
+    color: var(--Cuarternario);
+    font-weight: 400;
+}
+
+.servicio p {
+    line-height: 2rem;
+    text-align: center;
+}
+
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--Cuarternario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/*Contacto*/
+.formulario {
+    background-color: var(--Secundario);
+    width: min(60rem, 100%);
+    /*Utiliza el valor más pequeño, funciona como un mq*/
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: var(--Cuarternario);
+
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1rem;
+        grid-template-rows: auto auto 20rem;
+    }
+
+    .campo:nth-child(3){
+        grid-column: 1/3;
+    }
+
+    .campo:nth-child(4){
+        grid-column: 1/3;
+    }
+}
+
+.campo {
+    margin-bottom: 1rem;
+
+}
+
+.campo label {
+    display: block;
+    color: var(--Cuarternario);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.campo .inputs-text {
+    border: none;
+    border-radius: .5rem;
+    padding: 1.5rem;
+    width: 100%;
+}
+
+.enviar .boton{
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+  .enviar .boton{
+    display: flex;
+    justify-content:flex-start;
+    width: auto;
+    margin-top: 4.5rem;
+  }
+}
+.formulario textarea{
+    height: 20rem;
+    width: 100%;
+}
+
+.footer{
+    text-align: center;
+}
+/*Cuando se quiere hacer una modificacion a una clase se debe poner ".nombreDeLaClase", sin las comillas*/
