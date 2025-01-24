@@ -13,8 +13,6 @@
 - [Herramientas Utilizadas](#herramientas-utilizadas)
 - [Imágenes del Proyecto](#imágenes-del-proyecto)
 - [Demo](#demo)
-- [Cómo Usar el Proyecto](#cómo-usar-el-proyecto)
-- [Agradecimientos](#agradecimientos)
 
 ---
 
